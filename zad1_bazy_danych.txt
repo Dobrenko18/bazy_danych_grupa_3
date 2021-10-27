@@ -1,0 +1,57 @@
+#zadanie 1.1
+create table postac( id_postaci int auto_increment primary key, nazwa varchar (40), rodzaj enum('wiking','ptak','kobieta'), data_ur date, wiek int unsigned);
+
+#zadanie 1.2
+INSERT INTO postac VALUES(default, 'Bjorn', 'wiking', '2000-02-03', '21');
+INSERT INTO postac (nazwa, rodzaj, data_ur, wiek) VALUES('Drozd', 'ptak', '2001-02-03', '20');
+INSERT INTO postac (nazwa, rodzaj, data_ur, wiek) VALUES('Tesciowa', 'kobieta', '1999-06-01', '22');
+
+#zadanie 1.3
+UPDATE postac SET wiek=88 WHERE nazwa='Tesciowa';
+
+#zadanie 2.1
+create table walizka
+( id_walizki int auto_increment primary key,
+pojemnosc int unsigned,
+kolor enum('rozowy','czerwony','teczowy','zolty'),
+id_wlasciciela int, foreign key (id_wlasciciela) REFERENCES postac(id_postaci) ON DELETE CASCADE);
+
+#zadanie 2.2
+ALTER TABLE walizka ALTER kolor SET DEFAULT 'rozowy';
+
+#zadanie 2.3
+INSERT INTO walizka(pojemnosc, id_wlasciciela) VALUES(15,1),(30,3);
+
+#zadanie 3.1
+create table izba(
+adres_budynku varchar(100),
+nazwa_izby varchar(100),
+metraz int unsigned,
+wlasciciel int, foreign key (wlasciciel) REFERENCES postac(id_postaci) ON DELETE SET NULL,
+PRIMARY KEY(adres_budynku, nazwa_izby));
+
+#zadanie 3.2
+ALTER TABLE izba ADD COLUMN kolor_izby varchar(100) DEFAULT 'czarny' AFTER metraz;
+
+#zadanie 3.3
+insert INTO izba(adres_budynku, nazwa_izby, metraz, wlasciciel) VALUES ('Naglady13', 'spizarnia', 50, 1);
+
+#zadanie 4.1
+create table przetwory(
+id_przetworu int auto_increment PRIMARY KEY,
+rok_produkcji INT(4) DEFAULT 1654,
+id_wykonawcy int, FOREIGN KEY (id_wykonawcy) REFERENCES postac(id_postaci),
+zawartosc varchar(100),
+dodatek varchar(100) DEFAULT 'papryczka chilli',
+id_konsumenta int, FOREIGN KEY (id_konsumenta) REFERENCES postac(id_postaci));
+
+#zadanie 4.2
+insert INTO przetwory(id_wykonawcy, zawartosc, id_konsumenta) VALUES (1,'bigos z papryczka chilli', 3);
+
+#zadanie 5.1
+INSERT INTO postac(nazwa, rodzaj, data_ur, wiek) VALUES
+    ('Rudy', 'wiking', '1990-02-04', 31 ),
+    ('Czarny', 'wiking', '1990-01-02', 31),
+    ('Torvi', 'wiking', '1990-05-04', 31),
+	('Rollo', 'wiking', '1990-03-19', 31),
+	('Kebab', 'wiking', '1990-02-19', 31);
