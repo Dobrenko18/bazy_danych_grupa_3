@@ -55,3 +55,36 @@ INSERT INTO postac(nazwa, rodzaj, data_ur, wiek) VALUES
     ('Torvi', 'wiking', '1990-05-04', 31),
 	('Rollo', 'wiking', '1990-03-19', 31),
 	('Kebab', 'wiking', '1990-02-19', 31);
+#zadanie 5.2
+CREATE TABLE statek
+(nazwa_statku varchar(255) primary key, 
+rodzaj_statku enum("maly","sredni","duzy"),
+data_wodowania INT(4) DEFAULT 1654,
+max_ladownosc int unsigned);
+
+#zadanie 5.3
+INSERT INTO statek(nazwa_statku, rodzaj_statku,max_ladownosc) VALUES
+    ('Tytanik', 'sredni',500 ),
+    ('Mors', 'maly',  300);
+	
+#zadanie 5.4
+ALTER TABLE postac ADD funkcja varchar(255);
+
+#zadanie 5.5
+UPDATE postac SET funkcja='kapitan' WHERE nazwa='Bjorn';
+
+#zadanie 5.6 
+ALTER TABLE postac ADD COLUMN nazwa_statku varchar(255);
+ALTER TABLE postac add foreign key(nazwa_statku) REFERENCES statek(nazwa_statku);
+
+#zadanie 5.7
+UPDATE postac SET nazwa_statku='tytanik' WHERE nazwa='RUDY' OR nazwa='Drozd' OR nazwa='Rollo';
+UPDATE postac SET nazwa_statku='Mors' WHERE nazwa='Czarny' OR nazwa='Torvi' OR nazwa='Kebab';
+
+\\UPDATE postac set nazwa_statku='tytanik' WHERE id_postaci int (1,2,3,4,5)\\
+
+#zadanie 5.8 
+DELETE FROM izba WHERE nazwa_izby='spizarnia';
+
+#zadanie 5.9
+DROP TABLE izba;
