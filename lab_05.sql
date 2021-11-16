@@ -50,4 +50,18 @@ lub
 Select distinct(rodzaj) from kreatura;
 
 #zadanie 4 b)
-metoda concat(kolumna, 'tekst', funkcja());
+select concat('w postaci :' , nazwa ,'-', rodzaj) from kreatura WHERE rodzaj LIKE 'wi%';
+
+#zadanie 4 c)
+
+select concat('calkowita waga: ',ilosc*waga) from zasob WHERE dataPozyskania BETWEEN '2000-01-01'  AND '2007-12-31';
+
+#zadanie 5 a)
+
+select concat('jedzenie netto: ', waga*0.70 , ' odpady: ' , waga*0.30) from zasob WHERE rodzaj='jedzenie';
+
+#zadanie 5 b)
+select * from zasob WHERE rodzaj IS NULL;
+
+#zadanie 5 c)
+SELECT DISTINCT rodzaj from zasob  WHERE nazwa LIKE 'Ba%' or nazwa LIKE '%os';
