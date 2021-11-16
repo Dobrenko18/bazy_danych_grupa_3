@@ -92,3 +92,8 @@ CREATE TABLE zwierz
 (id int auto_increment primary key, 
 nazwa VARCHAR(50),
 wiek INT);
+
+f)
+INSERT INTO zwierz
+SELECT id_postaci , nazwa, wiek FROM postac
+where  rodzaj='wonsz' or rodzaj='ptak';
