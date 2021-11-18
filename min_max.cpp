@@ -71,7 +71,19 @@ int Max(vector<int>tab)
 	}
 	return wynik;
 }
+vector<int>unikalnosc(vector<int>tab)
+{
+	vector<int>wynik;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (!czynalezy(wynik,tab[i]))
+		{
+			wynik.push_back(tab[i]);
+		}
 
+	}
+	return wynik;
+}
 int main()
 {
 	int a = 3 + 5;
@@ -105,7 +117,9 @@ int main()
 	{
 		cout << "nie";
 	}
-
+	cout<<"\n";
+	vector<int>wynik3 = unikalnosc(tab);
+	wypisz(wynik3);
 	cout <<"\n" << Min(tab);
 	cout << "\n" << Max(tab);
 }
