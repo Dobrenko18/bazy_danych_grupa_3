@@ -123,3 +123,27 @@ int main()
 	cout <<"\n" << Min(tab);
 	cout << "\n" << Max(tab);
 }
+
+
+
+
+vector<vector<int>>czestosc(vector<int>tab)
+{
+	vector<vector<int>>wynik;
+	vector<int> u = unikalnosc(tab);
+	vector<int>u;
+	for (int i = 0; i < u.size; i++)
+	{
+		int licznik = 0;
+		for (int j = 0; j < tab.size(); j++)
+		{
+			if (u[i] == tab[j])
+				licznik++;
+		}
+		c.push_back(licznik);
+	}
+	wynik.push_back(u);
+	return(wynik);
+
+}
+
