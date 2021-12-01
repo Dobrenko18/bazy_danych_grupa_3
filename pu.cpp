@@ -124,6 +124,10 @@ vector<vector<int>>czestosc(vector<int>tab)
 
 int main()
 {
+	int a = 5 + 3;
+	int b = suma(a, 5);
+	wypisz(b);
+
 	vector<int>tab = { 1, 0, 4, 9, 5, 4, 7, 1, 4 };
 	vector<int>podzbior = { 0, 4, 9, 5, };
 
