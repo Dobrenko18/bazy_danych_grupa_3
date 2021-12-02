@@ -132,6 +132,22 @@ bool czynalezyklucz(map<int , int> m, int klucz)
 	}
 	return false;
 }
+map<int, int>czestoscklucz(vector<int>tab)
+{
+	map<int, int>wynik;
+	for (int i = 0; i < tab.size(); i++)
+	{
+		if (!czynalezyklucz(wynik, tab[i]))
+		{
+			wynik.insert({ tab[i],1 });
+		}
+		else
+		{
+			wynik[tab[i]]++;
+		}
+	}
+	return wynik;
+}
 
 int main()
 {
