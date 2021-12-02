@@ -121,6 +121,17 @@ vector<vector<int>>czestosc(vector<int>tab)
 
 	return wynik;
 }
+bool czynalezyklucz(map<int , int> m, int klucz)
+{
+	for (auto item:m)
+	{
+		if (item.first == klucz)
+		{
+			return true;
+		}
+	}
+	return false;
+}
 
 int main()
 {
