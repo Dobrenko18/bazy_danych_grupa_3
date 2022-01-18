@@ -70,8 +70,7 @@ UPDATE marynarz SET nazwa_statku=NULL WHERE nazwa_statku is not null;
 b)
 DELETE FROM postac where nazwa='Ragnar';
 
-c) 
-
+c)
 ALTER TABLE marynarz
 DROP FOREIGN KEY marynarz_ibfk_1;
 
